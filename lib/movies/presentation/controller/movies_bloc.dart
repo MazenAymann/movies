@@ -19,6 +19,7 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
       }, (r) {
         emit(MoviesState(
           nowPlayingMovies: r,
+          nowPlayingMoviesState: RequestState.success,
         ));
       });
     });
