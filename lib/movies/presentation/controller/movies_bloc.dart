@@ -41,5 +41,19 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
         ));
       });
     });
+
+    on<GetTopRatedMoviesEvent>((event, emit) async {
+      final result = await getTopRatedMoviesUseCase.execute();
+      result.fold((l) {
+        emit(state.copyWith(
+            topRatedMoviesMsg: l.message,
+            topRatedMoviesState: RequestState.error));
+      }, (r) {
+        emit(state.copyWith(
+          topRatedMovies: r,
+          topRatedMoviesState: RequestState.success,
+        ));
+      });
+    });
   }
 }

@@ -16,8 +16,8 @@ class MainMoviesScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) => sl<MoviesBloc>()
         ..add(GetNowPlayingMoviesEvent())
-        ..add(GetPopularMoviesEvent()),
-      // ..add(GetTopRatedMoviesEvent()),
+        ..add(GetPopularMoviesEvent())
+        ..add(GetTopRatedMoviesEvent()),
       child: Scaffold(
         backgroundColor: Colors.grey.shade900,
         body: SingleChildScrollView(
